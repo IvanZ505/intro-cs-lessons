@@ -25,7 +25,7 @@ public class OrderCheck {
         int c = Integer.parseInt(args[2]);
         int d = Integer.parseInt(args[3]);
 
-        boolean x = (a < b) && (b < c) && (c < d);
+        boolean x = ((a < b) && (b < c) && (c < d)) || ((a > b) && (b > c) && (c > d));
         System.out.println(x);
     }
 }
