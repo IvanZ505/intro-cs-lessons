@@ -1,5 +1,6 @@
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.Scanner;
 import java.math.*;
 
@@ -33,4 +34,5 @@ public class Variables {
 
         System.out.println(avg);
     }
+
 }

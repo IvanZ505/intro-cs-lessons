@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/week 4/windchill" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 4/displayevennum" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 4/orderednums" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 4/avgmovierater" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
