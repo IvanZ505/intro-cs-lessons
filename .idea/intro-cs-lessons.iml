@@ -13,6 +13,9 @@
       <sourceFolder url="file://$MODULE_DIR$/week 4/avgmovierater" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 5/summation" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 5/horizon_pyramid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 5/checkdig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 5/largestof5" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 5/randomwalk" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
