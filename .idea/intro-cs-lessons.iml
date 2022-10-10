@@ -16,6 +16,9 @@
       <sourceFolder url="file://$MODULE_DIR$/week 5/checkdig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 5/largestof5" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 5/randomwalk" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 6/array_concat" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 6/inplace" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 6/recittation_arrays" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

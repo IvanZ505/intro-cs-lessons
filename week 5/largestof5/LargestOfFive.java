@@ -22,7 +22,7 @@ public class LargestOfFive {
 
     public static void main (String[] args) {
 
-        int[] array = new int[5];
+        int[] array = new int[100];
 
         int i;
         for(i=0; i<args.length; i++) {
