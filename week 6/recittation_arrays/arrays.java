@@ -1,9 +1,11 @@
+import java.util.Arrays;
+
 public class arrays {
     public static void main(String[] args) {
         int[][] array = new int[4][4];
 
         for(int i=0; i<array.length; i++) {
-            for(int j=0; j<array[i].length-1; j++) {
+            for(int j=0; j<array[i].length; j++) {
                 double k = Math.random();
                 int l;
                 if(k < 0.5) {
@@ -14,14 +16,17 @@ public class arrays {
                 array[i][j] = l;
             }
         }
+        for(int[] arr_row : array) {
+            System.out.println(Arrays.toString(arr_row));
+        }
 
         int zerocnt = 0;
-        int onecnt = 1;
-        for(int o=0; o<array.length; o++) {
-            for(int p=0; p<array[p].length-1; p++) {
-                if(array[o][p] == 0) {
+        int onecnt = 0;
+        for (int[] ints : array) {
+            for (int anInt : ints) {
+                if (anInt == 0) {
                     zerocnt++;
-                } else if (array[o][p] == 1) {
+                } else if (anInt == 1) {
                     onecnt++;
                 }
             }
