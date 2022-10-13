@@ -21,6 +21,8 @@
       <sourceFolder url="file://$MODULE_DIR$/week 6/recittation_arrays" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 6/classroom" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 6/inputOutput" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 6/plotusa" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 6/populationage" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

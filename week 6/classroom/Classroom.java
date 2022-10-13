@@ -32,8 +32,6 @@ public class Classroom {
                     room[x][y] = "empty";
             }
             }
-
-
         }
         System.out.println();
         for (String[] strings : room) {
