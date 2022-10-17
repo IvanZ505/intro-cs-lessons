@@ -20,9 +20,13 @@
       <sourceFolder url="file://$MODULE_DIR$/week 6/inplace" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 6/recittation_arrays" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 6/classroom" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/week 6/inputOutput" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 6/plotusa" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 6/populationage" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/inputOutput" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 7/Std lib test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 7/num guess" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 7/shape drawing" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 7/triangle" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
