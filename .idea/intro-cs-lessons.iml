@@ -27,6 +27,7 @@
       <sourceFolder url="file://$MODULE_DIR$/week 7/num guess" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 7/shape drawing" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 7/triangle" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 7/functions" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
