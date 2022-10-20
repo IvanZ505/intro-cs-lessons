@@ -7,6 +7,7 @@ public class ArrayCreate {
         return array;
     }
 
+    // Recursion for above
     public static void populateRecur(double[] array, int size, int min, int max, int i) {
         if(i<size) {
             double x = Math.random() * (max - min) + min;
@@ -15,4 +16,21 @@ public class ArrayCreate {
             populateRecur(array, size, min, max, i);
         }
     }
+
+    public static void printDoubleArray(double[] array) {
+        StdOut.print("[");
+        for(double x : array) {
+            StdOut.print(x + " ");
+        }
+        StdOut.println("]");
+    }
+
+    public static double sumArray(double[] array) {
+        double sum = 0;
+        for (double v : array) {
+            sum += v;
+        }
+        return sum;
+    }
+
 }

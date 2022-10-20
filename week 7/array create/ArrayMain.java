@@ -5,5 +5,7 @@ public class ArrayMain {
     public static void main(String[] args) {
         double[] array = ArrayCreate.createAndPopulate(5, 1, 6);
         System.out.println(Arrays.toString(array));
+        ArrayCreate.printDoubleArray(array);
+        StdOut.println(ArrayCreate.sumArray(array));
     }
 }
