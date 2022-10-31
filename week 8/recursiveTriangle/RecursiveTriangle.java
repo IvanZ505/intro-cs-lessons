@@ -1,9 +1,10 @@
 public class RecursiveTriangle {
     public static void pyramid(int x) {
+        int y = 0;
         if(x == 0) {
             return;
         }
-        printRow(x);
+        printRow(x, y);
         pyramid(x-1);
     }
 
@@ -12,16 +13,16 @@ public class RecursiveTriangle {
         if(y == x) {
             return;
         }
-        printRow(y);
-        pyramid(y+1);
+        printRow(y, x);
+        upwardsPyramid(x-1);
     }
-    public static void printRow(int y) {
-        if(y == 0) {
+    public static void printRow(int x, int y) {
+        if(x == y) {
             StdOut.println();
             return;
         }
         StdOut.print("*");
-        printRow(y-1);
+        printRow(x+1, y);
     }
     public static void main(String[] args) {
         //pyramid(5);
