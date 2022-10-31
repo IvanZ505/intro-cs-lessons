@@ -33,6 +33,9 @@
       <sourceFolder url="file://$MODULE_DIR$/week 7/array create" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 7/caller predict" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 8/polygon transform" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 8/fibonacci" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 8/recursive factorial" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 8/recursiveTriangle" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

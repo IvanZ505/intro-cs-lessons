@@ -2,7 +2,7 @@
  *  Compilation:  javac PolygonTransform.java
  *  Execution:    java PolygonTransform
  *
- *  @author:
+ *  @author: Ivan Zheng, ivan.z@rutgers.edu, iz60
  *
  *************************************************************************/
 
