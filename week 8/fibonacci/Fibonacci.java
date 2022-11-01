@@ -10,6 +10,7 @@ public class Fibonacci {
         return fib(n-1) + fib(n-2);
     }
     public static void main(String[] args) {
+        StdOut.println(StdRandom.uniform());
         StdOut.println(fib(10));
 
     }
