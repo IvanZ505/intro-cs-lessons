@@ -1,11 +1,12 @@
 /*
  *
- * @author: Haolin Jin
+ * @author: Ivan Zheng, iz60, ivan.z@rutgers.edu
  * 
  * To generate weather for location at longitude -98.76 and latitude 26.70 for
  * the month of February do:
  * java WeatherGenerator -98.76 26.70 3
  */
+
 
 import java.util.Arrays;
 
@@ -40,23 +41,23 @@ public class WeatherGenerator {
     public static void populateArrays(double[][] drywet, double[][] wetwet) {
 
         //StdIn.setFile("drywet.txt");
-        StdIn.setFile("/home/izheng/IdeaProjects/intro-cs-lessons/week 8/cs111-a6/drywet.txt");
+         StdIn.setFile("/home/izheng/IdeaProjects/intro-cs-lessons/week 8/cs111-a6/drywet.txt");
 
-	for(int i=0; i < drywet.length; i++){
-            for(int j=0; j<14; j++){
-                drywet[i][j] = StdIn.readDouble();
+        for(int i=0; i < drywet.length; i++){
+                for(int j=0; j<14; j++){
+                    drywet[i][j] = StdIn.readDouble();
+                }
+            }
+
+	    //StdIn.setFile("wetwet.txt");
+         StdIn.setFile("/home/izheng/IdeaProjects/intro-cs-lessons/week 8/cs111-a6/wetwet.txt");
+
+        for(int i=0; i < drywet.length; i++){
+                for(int j=0; j<14; j++){
+                    wetwet[i][j] = StdIn.readDouble();
+                }
             }
         }
-
-	// StdIn.setFile("wetwet.txt");
-        StdIn.setFile("/home/izheng/IdeaProjects/intro-cs-lessons/week 8/cs111-a6/wetwet.txt");
-
-	for(int i=0; i < drywet.length; i++){
-            for(int j=0; j<14; j++){
-                wetwet[i][j] = StdIn.readDouble();
-            }
-        }
-    }
 
     /* 
      * Description:
@@ -204,9 +205,9 @@ public class WeatherGenerator {
         double[] wetwetProbs = new double[14];
         populateLocationProbabilities(drywetProbs, wetwetProbs, longitude, latitude, drywet, wetwet);
         int noOfDays = numberOfDaysInMonth[month];
-        StdOut.printf("Number of Days: %s \n", noOfDays);
-        StdOut.println(drywetProbs[month+2]);
-        StdOut.println(wetwetProbs[month+2]);
+//        StdOut.printf("Number of Days: %s \n", noOfDays);
+//        StdOut.println(drywetProbs[month+2]);
+//        StdOut.println(wetwetProbs[month+2]);
         return forecastGenerator(drywetProbs[month+2], wetwetProbs[month+2], noOfDays);
     }
 
@@ -301,13 +302,22 @@ public class WeatherGenerator {
      *      System.out.println(lengthOfLongestSpell(arr)); //prints out 12
      */ 
     public static int bestWeekToTravel(int[] forecast){
-        
+        int indexEarliest = 0;
+        int highestCount = 0;
         for (int x = 0; x < forecast.length-6; x++) {
-            for(int y = 0; y<7; y++) {
-
+            int count = 0;
+            for(int y = x; y<x+7; y++) {
+                if(forecast[y] == 2) {
+                    count++;
+                }
             }
+            if(count > highestCount) {
+                indexEarliest = x;
+                highestCount = count;
+            }
+
         }
-        return 5;
+        return indexEarliest;
     }
 
     /*
@@ -321,32 +331,42 @@ public class WeatherGenerator {
         int numberOfColumns = 14;   // Total number of 14 columns in file 
         
         // File format: longitude, latitude, 12 months of transition probabilities
-//        double longitude = Double.parseDouble(args[0]);
-//        double latitude  = Double.parseDouble(args[1]);
-//        int    month     = Integer.parseInt(args[2]);
+        double longitude = Double.parseDouble(args[0]);
+        double latitude  = Double.parseDouble(args[1]);
+        int    month     = Integer.parseInt(args[2]);
 
-        int[] forecast = oneMonthForecast(numberOfRows, 0, -97.58, 26.37);
-        StdOut.println(Arrays.toString(forecast));
-        int numberOfModeDays = numberOfWetDryDays(forecast, 1);
-        StdOut.println(numberOfModeDays);
-        StdOut.println(lengthOfLongestSpell(forecast, 2));
+//        int[] forecast = oneMonthForecast(numberOfRows, 0, -97.58, 26.37);
+//        StdOut.println(Arrays.toString(forecast));
+//        int numberOfModeDays = numberOfWetDryDays(forecast, 1);
+//        StdOut.println(numberOfModeDays);
+//        StdOut.println(lengthOfLongestSpell(forecast, 1));
+//        StdOut.println(bestWeekToTravel(forecast));
 
-//        int[] forecast = oneMonthForecast( numberOfRows,  month,  longitude,  latitude );
-//
+        int[] forecast = oneMonthForecast( numberOfRows,  month,  longitude,  latitude );
 
-//
-//        int drySpell = lengthOfLongestSpell(forecast, DRY);
-//        int wetSpell = lengthOfLongestSpell(forecast, WET);
-//        int bestWeek = bestWeekToTravel(forecast);
-//
-//        StdOut.println("There are " + forecast.length + " days in the forecast for month " + month);
-//        StdOut.println(drySpell + " days of dry spell.");
-//        StdOut.println("The bestWeekToTravel starts on:" + bestWeek );
-//
-//        for ( int i = 0; i < forecast.length; i++ ) {
-//            // This is the ternary operator. (conditional) ? executed if true : executed if false
-//            String weather = (forecast[i] == WET) ? "Wet" : "Dry";
-//            StdOut.println("Day " + (i) + " is forecasted to be " + weather);
-//        }
+
+
+        int drySpell = lengthOfLongestSpell(forecast, DRY);
+        int wetSpell = lengthOfLongestSpell(forecast, WET);
+        int bestWeek = bestWeekToTravel(forecast);
+
+        StdOut.println("There are " + forecast.length + " days in the forecast for month " + month);
+        StdOut.println(drySpell + " days of dry spell.");
+        StdOut.println("The bestWeekToTravel starts on:" + bestWeek );
+
+        for ( int i = 0; i < forecast.length; i++ ) {
+            // This is the ternary operator. (conditional) ? executed if true : executed if false
+            String weather = (forecast[i] == WET) ? "Wet" : "Dry";
+            StdOut.println("Day " + (i) + " is forecasted to be " + weather);
+        }
+
+        double[][] drywetProbs = new double[4200][14];
+        double[][] wetwetProbs = new double[4200][14];
+        populateArrays(drywetProbs, wetwetProbs);
+        double[] drywet = new double[14];
+        double[] wetwet = new double[14];
+        populateLocationProbabilities(drywet, wetwet, -115.13, 36.25, drywetProbs, wetwetProbs);
+        StdOut.println(Arrays.toString(drywet));
+        StdOut.println(Arrays.toString(wetwet));
     }
 }
