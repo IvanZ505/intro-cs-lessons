@@ -267,15 +267,19 @@ public class WeatherGenerator {
         int longest = 1;
         int templongest = 1;
         for(int x = 1; x < forecast.length; x++) {
-            if(forecast[x] == forecast[x-1]) {
+            if(forecast[x] == forecast[x-1] && forecast[x] == mode) {
                 templongest++;
             } else {
                 if (templongest > longest) {
                     longest = templongest;
+                    templongest = 1;
+                }
+                else if(templongest <= longest) {
+                    templongest = 1;
                 }
             }
         }
-        return 5;
+        return longest;
     }
 
     /* 
@@ -298,7 +302,11 @@ public class WeatherGenerator {
      */ 
     public static int bestWeekToTravel(int[] forecast){
         
-        // COMPLETE THIS METHOD
+        for (int x = 0; x < forecast.length-6; x++) {
+            for(int y = 0; y<7; y++) {
+
+            }
+        }
         return 5;
     }
 
@@ -321,7 +329,7 @@ public class WeatherGenerator {
         StdOut.println(Arrays.toString(forecast));
         int numberOfModeDays = numberOfWetDryDays(forecast, 1);
         StdOut.println(numberOfModeDays);
-        StdOut.println(lengthOfLongestSpell(forecast, 1));
+        StdOut.println(lengthOfLongestSpell(forecast, 2));
 
 //        int[] forecast = oneMonthForecast( numberOfRows,  month,  longitude,  latitude );
 //
