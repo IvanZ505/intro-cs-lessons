@@ -40,8 +40,8 @@ public class WeatherGenerator {
      */
     public static void populateArrays(double[][] drywet, double[][] wetwet) {
 
-        //StdIn.setFile("drywet.txt");
-         StdIn.setFile("/home/izheng/IdeaProjects/intro-cs-lessons/week 8/cs111-a6/drywet.txt");
+        StdIn.setFile("drywet.txt");
+        // StdIn.setFile("/home/izheng/IdeaProjects/intro-cs-lessons/week 8/Weather generator/drywet.txt");
 
         for(int i=0; i < drywet.length; i++){
                 for(int j=0; j<14; j++){
@@ -49,8 +49,8 @@ public class WeatherGenerator {
                 }
             }
 
-	    //StdIn.setFile("wetwet.txt");
-         StdIn.setFile("/home/izheng/IdeaProjects/intro-cs-lessons/week 8/cs111-a6/wetwet.txt");
+	    StdIn.setFile("wetwet.txt");
+        //StdIn.setFile("/home/izheng/IdeaProjects/intro-cs-lessons/week 8/Weather generator/wetwet.txt");
 
         for(int i=0; i < drywet.length; i++){
                 for(int j=0; j<14; j++){
@@ -96,23 +96,23 @@ public class WeatherGenerator {
                                      double longitude, double latitude, 
                                      double[][] drywet, double[][] wetwet){
 
-        drywetProbability[0] = longitude;
-        drywetProbability[1] = latitude;
-        wetwetProbability[0] = longitude;
-        wetwetProbability[1] = latitude;
+//        drywetProbability[0] = longitude;
+//        drywetProbability[1] = latitude;
+//        wetwetProbability[0] = longitude;
+//        wetwetProbability[1] = latitude;
 
         for (double[] doubles : drywet) {
             if (doubles[0] == longitude && doubles[1] == latitude) {
-                for (int y = 2; y < drywetProbability.length; y++) {
-                    drywetProbability[y] = doubles[y];
+                for (int y = 0; y < drywetProbability.length; y++) {
+                    drywetProbability[y] = doubles[y+2];
                 }
             }
         }
 
         for (double[] doubles : wetwet) {
             if (doubles[0] == longitude && doubles[1] == latitude) {
-                for (int y = 2; y < wetwetProbability.length; y++) {
-                    wetwetProbability[y] = doubles[y];
+                for (int y = 0; y < wetwetProbability.length; y++) {
+                    wetwetProbability[y] = doubles[y+2];
                 }
             }
         }
@@ -201,14 +201,14 @@ public class WeatherGenerator {
         double[][] drywet = new double[numberOfLocations][14];
         double[][] wetwet = new double[numberOfLocations][14];
         populateArrays(drywet,  wetwet);
-        double[] drywetProbs = new double[14];
-        double[] wetwetProbs = new double[14];
+        double[] drywetProbs = new double[12];
+        double[] wetwetProbs = new double[12];
         populateLocationProbabilities(drywetProbs, wetwetProbs, longitude, latitude, drywet, wetwet);
         int noOfDays = numberOfDaysInMonth[month];
 //        StdOut.printf("Number of Days: %s \n", noOfDays);
 //        StdOut.println(drywetProbs[month+2]);
 //        StdOut.println(wetwetProbs[month+2]);
-        return forecastGenerator(drywetProbs[month+2], wetwetProbs[month+2], noOfDays);
+        return forecastGenerator(drywetProbs[month], wetwetProbs[month], noOfDays);
     }
 
     /********
@@ -343,7 +343,7 @@ public class WeatherGenerator {
 //        StdOut.println(bestWeekToTravel(forecast));
 
         int[] forecast = oneMonthForecast( numberOfRows,  month,  longitude,  latitude );
-
+        StdOut.println(Arrays.toString(forecast));
 
 
         int drySpell = lengthOfLongestSpell(forecast, DRY);
@@ -360,13 +360,13 @@ public class WeatherGenerator {
             StdOut.println("Day " + (i) + " is forecasted to be " + weather);
         }
 
-        double[][] drywetProbs = new double[4200][14];
-        double[][] wetwetProbs = new double[4200][14];
-        populateArrays(drywetProbs, wetwetProbs);
-        double[] drywet = new double[14];
-        double[] wetwet = new double[14];
-        populateLocationProbabilities(drywet, wetwet, -115.13, 36.25, drywetProbs, wetwetProbs);
-        StdOut.println(Arrays.toString(drywet));
-        StdOut.println(Arrays.toString(wetwet));
+//        double[][] drywetProbs = new double[4100][14];
+//        double[][] wetwetProbs = new double[4100][14];
+//        populateArrays(drywetProbs, wetwetProbs);
+//        double[] drywet = new double[12];
+//        double[] wetwet = new double[12];
+//        populateLocationProbabilities(drywet, wetwet, -115.13, 36.25, drywetProbs, wetwetProbs);
+//        StdOut.println(Arrays.toString(drywet));
+//        StdOut.println(Arrays.toString(wetwet));
     }
 }
