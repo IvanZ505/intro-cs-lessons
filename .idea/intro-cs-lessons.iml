@@ -37,6 +37,7 @@
       <sourceFolder url="file://$MODULE_DIR$/week 8/recursive factorial" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 8/recursiveTriangle" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 8/Weather generator" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 9/pictureGray" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
