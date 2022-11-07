@@ -342,6 +342,7 @@ public class WeatherGenerator {
 //        StdOut.println(lengthOfLongestSpell(forecast, 1));
 //        StdOut.println(bestWeekToTravel(forecast));
 
+
         int[] forecast = oneMonthForecast( numberOfRows,  month,  longitude,  latitude );
         StdOut.println(Arrays.toString(forecast));
 
