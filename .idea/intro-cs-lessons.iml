@@ -40,6 +40,7 @@
       <sourceFolder url="file://$MODULE_DIR$/week 9/pictureGray" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 10/anagrams" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 10/palindrome" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 10/turtles" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
