@@ -31,7 +31,7 @@ public class Sierpinski {
     public static void sierpinski(int n, double x, double y, double length) {
             filledTriangle(x, y, length);
 
-            if(n != 0) {
+            if(n != 1) {
                 sierpinski(n - 1, x -length/2, y, length / 2);
                 sierpinski(n - 1, x + length/2, y, length / 2);
                 sierpinski(n - 1, x, y+height(length), length / 2);
@@ -43,9 +43,12 @@ public class Sierpinski {
     // whose bottom-left vertex is (0, 0) and bottom-right vertex is (1, 0); and 
     // draws a Sierpinski triangle of order n that fits snugly inside the outline. 
     public static void main(String[] args) {
+        int n = Integer.parseInt(args[0]);
+        // int n = StdIn.readInt();
         double[] x = {0.0, 0.5, 1.0};
         double[] y = {0.0, height(1), 0.0};
 	    StdDraw.polygon(x,y);
-        sierpinski(4, 0.5, 0, 0.5);
+        //sierpinski(3,-18.68,33.54,67.23);
+        sierpinski(n, 0.5, 0, 0.5);
     }
 }
