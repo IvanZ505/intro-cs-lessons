@@ -2,7 +2,7 @@
  *  Compilation:  javac Sierpinski.java
  *  Execution:    java Sierpinski
  *
- *  @author:
+ *  @author: Ivan Zheng, iz60, ivan.z@rutgers.edu
  *
  *************************************************************************/
 
