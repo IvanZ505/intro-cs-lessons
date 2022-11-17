@@ -1,14 +1,12 @@
-import java.util.Arrays;
-
 public class SmartArray {
 
     private int[] array;
     private int n;
 
     //default array here
-    public SmartArray() {
-        array = new int[10];
-    }
+//    public SmartArray() {
+//        array = new int[10];
+//    }
 
     // custom array
     public SmartArray(int capacity) {
@@ -24,9 +22,7 @@ public class SmartArray {
     public void add(int item) {
         if(n >= array.length) {
             int[] newarray = new int[n*2];
-            for(int i =0; i<array.length; i++) {
-                newarray[i] = array[i];
-            }
+            System.arraycopy(array, 0, newarray, 0, array.length);
             array = newarray;
 
         }
