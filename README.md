@@ -302,6 +302,12 @@ To Create a data type:
 Week 11
 ====
 
+Big O:
+- Analyzes how fast a program runs in relation to input size
+- Notation used to measure the efficiency of a program (both space and time)
+- Machine-dependent (isn't a measure of machine speed directly)
+- Typically used to find WORST-TIME
+
 Efficiency of Algorithms
 
 - Find a function of the problem size that behaves like the algorithm's actual time requirement.
@@ -329,3 +335,71 @@ for(int i = 0; i < n; i++) {    // first statement runs once, second statement
 }
 
 // In total, we would end up with 3n+3 operations.
+
+```
+
+General Rules of Big O:
+1. It ignores constants
+2. certain terms "dominate" others (i.e. i^2 gets dominated by i^3)
+
+
+Constant Time:
+
+x = 5 * (15 + 2)
+Big O: 1
+
+Linear Time:
+
+x = 5 * (15 + 2)
+
+for x in  range (0, n):
+	print x;
+
+O(1) + O(N) = O(N)
+
+Quadratic Time:
+
+```java
+
+public class Mystery {
+
+	public static int mysteryMethod(int m, int n) {
+		
+		int var1 = 0;
+		int var2 = n;
+		while(var2 <= m) {
+			var1++;
+			var2 += n;
+		}
+	}
+
+} // O(N)
+
+```
+
+Grade book:
+
+N = number of assignments
+M = number of students
+
+gradeBookAverage() Best Case: O(NM) Worst Case: O(NM)
+studentAverage() Best Case: O(N) Worst Case: O(N)
+assignmentAverage() Best case: O(M) Worst Case: O(M)
+
+Sequential Search:
+
+2. There were 4 comparisons made in total
+3. Best Case: O(1) Worst Case: O(n)
+
+Binary Search:
+
+1. ```
+
+int[] array = [...]
+int num = a;
+for(int x=array.length; x>0; x/2) {
+	if(num == array[x]) {
+		return x;
+	}
+}
+``````
