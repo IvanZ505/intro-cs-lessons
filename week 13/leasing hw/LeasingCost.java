@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class LeasingCost {
     
@@ -95,8 +94,7 @@ public class LeasingCost {
      */
 	public static double computeFuelCost(double numberOfMonth, double usage, double mileageAllowance, double fuelPrice){
     	double miles = numberOfMonth * mileageAllowance;
-        double cost = miles/usage * fuelPrice;
-    	return cost;
+        return miles/usage * fuelPrice;
     }
 
     /* 
@@ -176,7 +174,7 @@ public class LeasingCost {
             // type:gas.name:civic.due:1000.length:3.monthly:295.mile/unit:34.mileageAllowance:1200.
             frag[f1] = description.substring(temp, init);
             val[v1] = description.substring(init+1, init2);
-            StdOut.println(description.substring(temp, init) + "- " + description.substring(init+1, init2));
+            // StdOut.println(description.substring(temp, init) + "- " + description.substring(init+1, init2));
             temp = init2+1;
             f1++;
             v1++;
@@ -193,8 +191,6 @@ public class LeasingCost {
         int allowance = 0;
         double mileage = 0;
 
-        StdOut.println(Arrays.toString(frag));
-        StdOut.println(Arrays.toString(val));
         int x = 0;
         while(frag[x] != null) {
             switch (frag[x].strip()) {
@@ -239,8 +235,26 @@ public class LeasingCost {
      *          computeLeaseCost(double dueAtSigning, int numberOfMonths, double monthlyCost)
      */
 	public static void computeCO2EmissionsAndCost( Vehicle[] vehicles, double gasPrice, double electricityPrice ){
-	   
-        // COMPLETE THIS METHOD
+        for (Vehicle i : vehicles) {
+            if(i.getFuel().getType() == 1) {
+                i.setCO2Emission(computeCO2(i.getLease().getLeaseLength(),
+                        i.getFuel().getUsage(), i.getLease().getMileageAllowance(), Fuel.CO2EMITTED_GASCOMBUSTION));
+                i.setFuelCost(computeFuelCost(i.getLease().getLeaseLength(), i.getFuel().getUsage(),
+                        i.getLease().getMileageAllowance(), gasPrice));
+                double total = computeLeaseCost(i.getLease().getDueAtSigning(), i.getLease().getLeaseLength(),
+                        i.getLease().getMonthlyCost()) + i.getFuelCost();
+                i.setTotalCost(total);
+            } else if(i.getFuel().getType() == 2) {
+                i.setCO2Emission(computeCO2(i.getLease().getLeaseLength(),
+                        i.getFuel().getUsage(), i.getLease().getMileageAllowance(), Fuel.CO2EMITTED_ELECTRICITYCOMBUSTION));
+                i.setFuelCost(computeFuelCost(i.getLease().getLeaseLength(), i.getFuel().getUsage(),
+                        i.getLease().getMileageAllowance(), electricityPrice));
+                double total = computeLeaseCost(i.getLease().getDueAtSigning(), i.getLease().getLeaseLength(),
+                        i.getLease().getMonthlyCost()) + i.getFuelCost() + i.getFuel().getCharger();
+                i.setTotalCost(total);
+            }
+
+        }
     	}
 
 
@@ -251,18 +265,19 @@ public class LeasingCost {
      *     java LeasingCost vehicles.txt 3.85 11.0
      **/
 	public static void main (String[] args) {
-//        String filename         = args[0];
-//        double gasPrice 		= Double.parseDouble( args[1] );
-//		double electricityPrice = Double.parseDouble( args[2] );
-//
-//		Vehicle[] vehicles = createAllVehicles(filename);
-//		computeCO2EmissionsAndCost(vehicles, gasPrice, electricityPrice);
-//
-//		for ( Vehicle v : vehicles )
-//            System.out.println(v.toString());
+        String filename         = args[0];
+        double gasPrice 		= Double.parseDouble( args[1] );
+		double electricityPrice = Double.parseDouble( args[2] );
 
-        Vehicle v = createVehicle("name:Bolt; charger:500;due:1708;length:12;  type:electric;mile/unit:3.5; allowance:1000;monthly:292;");
-        StdOut.println(v.toString());
+		Vehicle[] vehicles = createAllVehicles(filename);
+		computeCO2EmissionsAndCost(vehicles, gasPrice, electricityPrice);
+
+		for ( Vehicle v : vehicles )
+            System.out.println(v.toString());
+
+//        Vehicle v = createVehicle("name:Bolt; charger:500;due:1708;length:12;  type:electric;mile/unit:3.5; allowance:1000;monthly:292;");
+//        computeCO2EmissionsAndCost(v, 3.85, 11.0);
+//        StdOut.println(v.toString());
     }
 
 }
