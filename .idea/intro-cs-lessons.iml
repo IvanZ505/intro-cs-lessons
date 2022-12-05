@@ -48,6 +48,8 @@
       <sourceFolder url="file://$MODULE_DIR$/week 13/binary and sequential" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 13/leasing hw" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 13/recursive append" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 13/searching" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 13/sorting" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

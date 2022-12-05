@@ -1,8 +1,4 @@
-import java.util.Arrays;
-import java.util.stream.IntStream;
-
-public class Search {
-
+public class Searching {
     // Sequential search: Starts from the beginning of the array and goes to the end.
     // Worst case: The code would run n times and would have O(n)
     // Best case: The code would run 1 time and have O(1)
@@ -41,14 +37,5 @@ public class Search {
         }
 
         return -1;
-    }
-
-    public static void main(String[] args) {
-        int[] unsortedArray = {4, 12, 5, 95, 22, 9, 14};
-        int[] sortedArray = {4, 5, 9, 12, 14, 22, 95};
-        StdOut.println(sequentialSearch(unsortedArray, 22));
-        StdOut.println(binarySearch(sortedArray, 12));
-
-
     }
 }

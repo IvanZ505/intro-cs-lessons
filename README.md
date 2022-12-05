@@ -325,7 +325,7 @@ So basically does it run in CONSTANT TIME, LINEAR TIME, OR EXPONENTIAL TIME.
 
 Operation Counting:
 
-```java
+```
 
 int sum = 0			// One operation
 
@@ -386,20 +386,29 @@ gradeBookAverage() Best Case: O(NM) Worst Case: O(NM)
 studentAverage() Best Case: O(N) Worst Case: O(N)
 assignmentAverage() Best case: O(M) Worst Case: O(M)
 
-Sequential Search:
+Searching Algorithms:
+1. Sequential Search:
+   1. Sequential search goes through the entire array starting from index 0
+   2. Sequential search has a runtime of O(n) in the worst case
+   3. On the best case, it would have a runtime of O(1)
+2. Binary Search:
+   1. Requires a sorted array in order to use
+   2. Binary search always takes the index in the middle before comparing the value to be higher or lower
+   3. On the worst case, binary search has a runtime of O(logn), significantly faster than sequential
+   4. Best case: O(1)
 
-2. There were 4 comparisons made in total
-3. Best Case: O(1) Worst Case: O(n)
-
-Binary Search:
-
-1. ```
-
-int[] array = [...]
-int num = a;
-for(int x=array.length; x>0; x/2) {
-	if(num == array[x]) {
-		return x;
-	}
-}
-``````
+Sorting Algorithms:
+1. Selection Sort:
+   1. Starts from the beginning of the array and makes the entire array the unsorted region
+   2. Designates array[0] as the minimum value for now
+   3. Compares the minimum with every other number in the array, replacing it if necessary
+   4. Swaps the minimum to the first position of the array
+   5. Shrinks the unsorted region
+   6. This sorting algorithm has a runtime of O(n^2)
+   7. In the best case, this runtime would still have a runtime of O(n^2))
+2. Insertion Sort:
+   1. Insertion sort shuffles every other item in the array to make room for an entry.
+   2. Considers index 0 as part of the sorted section already.
+   3. Will compare the entry being sorted with everything else in the sorted array before plopping it down in place.
+   4. Continues down the unsorted array until everything is sorted.
+   5. Best case: If the array is already sorted O(n), worst case: O(n^2)
