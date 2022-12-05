@@ -412,3 +412,22 @@ Sorting Algorithms:
    3. Will compare the entry being sorted with everything else in the sorted array before plopping it down in place.
    4. Continues down the unsorted array until everything is sorted.
    5. Best case: If the array is already sorted O(n), worst case: O(n^2)
+3. Merge Sorting:
+   1. Breaks down the array into the smallest values by dividing it in half until its just a singular array #
+   2. Then it sorts it back up.
+   3. Runtime: O(n log n)
+
+Algo Efficiency Test:
+
+1. Finding a number in a unsorted array: Sequential search
+2. Finding a number in a sorted array: binary search
+3. Sorting an almost sorted array: insertion search
+4. Finding a number in an almost sorted array: Sequential search 
+5. Finding multiple numbers in a almost sorted array: insertion sort then binary sort
+6. Sort an array of random numbers: Merge sort
+
+Big O:
+1. Using Merge sort to sort an array of size n, then use binary search to find 10 elements: nlogn
+2. Using merge sort to sort an array of size n, then using binary search to find n^2 elements: n^2logn
+3. Using a merge sort to sort an array of size n, then use binary search to find (1/2)n elements: nlogn
+4. Using merge sort to sort an array of size n, then run sequential search on it: nlogn
