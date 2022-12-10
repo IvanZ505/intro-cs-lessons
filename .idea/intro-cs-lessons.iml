@@ -54,6 +54,7 @@
       <sourceFolder url="file://$MODULE_DIR$/week 14/insertion sort" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 14/merge sort" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week 14/selection sort" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week 14/heart surgery" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
