@@ -66,5 +66,11 @@ public class HeartTransplantDriver {
         for( int i = 0; i < 4; i++) {
             StdOut.println( ht.getPatientForTransplant().toString() );
         }
+        StdOut.println("Urgency 8: ");
+        Patient[] gg2 = ht.getPatientsByUrgency(8);
+        for (Patient p : gg2) {
+                StdOut.println(p);
+        }
+        StdOut.println();
     }
 }

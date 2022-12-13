@@ -92,6 +92,13 @@ public class HeartTransplant {
      */
     public void readSurvivabilityByAge (int numberOfLines) {
         // WRITE YOUR CODE HERE
+        survivabilityByAge = new SurvivabilityByAge();
+        for(int i = 0; i < numberOfLines; i++) {
+            int age = StdIn.readInt();
+            int years = StdIn.readInt();
+            double rate = StdIn.readDouble();
+            survivabilityByAge.addData(age, years, rate);
+        }
     }
 
     /*
@@ -106,6 +113,13 @@ public class HeartTransplant {
      */
     public void readSurvivabilityByCause (int numberOfLines) {
         // WRITE YOUR CODE HERE
+        survivabilityByCause = new SurvivabilityByCause();
+        for(int i = 0; i < numberOfLines; i++) {
+            int cause = StdIn.readInt();
+            int years = StdIn.readInt();
+            double rate = StdIn.readDouble();
+            survivabilityByCause.addData(cause, years, rate);
+        }
     }
     
     /*
@@ -121,8 +135,24 @@ public class HeartTransplant {
      */ 
     public Patient[] getPatientsWithAgeAbove(int age) {
         // WRITE YOUR CODE HERE
-  
-        return null;
+        int x = 0;
+        for (Patient patient : patients) {
+            if (patient.getAge() > age) {
+                x++;
+            }
+        }
+        Patient[] aboveAge = new Patient[x];
+        int j = 0;
+        for (int i = 0;i <patients.length; i++) {
+            if (patients[i].getAge() > age) {
+                aboveAge[j] = patients[i];
+                j++;
+            }
+        }
+        if(x == 0) {
+            return null;
+        }
+        return aboveAge;
     }
 
     /*
@@ -139,7 +169,24 @@ public class HeartTransplant {
     public Patient[] getPatientsByHeartConditionCause(int cause) {
 
         // WRITE YOUR CODE HERE
-        return null;
+        int x = 0;
+        for (Patient patient : patients) {
+            if (patient.getCause() == cause) {
+                x++;
+            }
+        }
+        Patient[] specificCauses = new Patient[x];
+        int j = 0;
+        for (int i = 0;i <patients.length; i++) {
+            if (patients[i].getCause() == cause) {
+                specificCauses[j] = patients[i];
+                j++;
+            }
+        }
+        if(x == 0) {
+            return null;
+        }
+        return specificCauses;
     }
 
     /*
@@ -156,7 +203,26 @@ public class HeartTransplant {
     public Patient[] getPatientsByUrgency(int urgency) {
 
         // WRITE YOUR CODE HERE
-	return null;
+        Patient[] requestedUrgency = new Patient[50];
+        int x = 0;
+        for (Patient patient : patients) {
+            if (patient.getUrgency() == urgency) {
+                requestedUrgency[x] = patient;
+                x++;
+            }
+        }
+
+        Patient[] newRequestedUrgency = new Patient[x];
+
+        for(int i = 0; i < requestedUrgency.length; i++) {
+            if(requestedUrgency[i] != null) {
+                newRequestedUrgency[i] = requestedUrgency[i];
+            }
+        }
+        if(x == 0) {
+            return null;
+        }
+        return newRequestedUrgency;
     }
 
     /*
@@ -179,6 +245,31 @@ public class HeartTransplant {
     public Patient getPatientForTransplant () {
 
 	// WRITE YOUR CODE HERE
-	return null;
+        double highest_chance = 0;
+        int patient_highest_index = 0;
+        int patient_index = 0;
+        double urgency_avg = 0;
+
+        for(Patient patient : patients) {
+            urgency_avg += patient.getUrgency();
+        }
+
+        urgency_avg /= patients.length;
+
+        while(patient_index < patients.length) {
+            if(patients[patient_index].getNeedHeart()) {
+                if (patients[patient_index].getUrgency() >= urgency_avg) {
+                    double avg = (survivabilityByAge.getRate(patients[patient_index].getAge(), 5) + survivabilityByCause.getRate(patients[patient_index].getCause(), 5)) / 2;
+                    if (avg > highest_chance) {
+                        highest_chance = avg;
+                        patient_highest_index = patient_index;
+                        // StdOut.println(highest_chance);
+                    }
+                }
+            }
+            patient_index++;
+        }
+        patients[patient_highest_index].setNeedHeart(false);
+	    return patients[patient_highest_index];
     }
 }
