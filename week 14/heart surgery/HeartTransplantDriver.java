@@ -72,5 +72,12 @@ public class HeartTransplantDriver {
                 StdOut.println(p);
         }
         StdOut.println();
+
+        StdOut.println("Heart Con: ");
+        Patient[] gg1 = ht.getPatientsByHeartConditionCause(1);
+        for (Patient p : gg1) {
+                StdOut.println(p);
+        }
+        StdOut.println();
     }
 }

@@ -175,6 +175,9 @@ public class HeartTransplant {
                 x++;
             }
         }
+        if(x == 0) {
+            return null;
+        }
         Patient[] specificCauses = new Patient[x];
         int j = 0;
         for (int i = 0;i <patients.length; i++) {
@@ -182,9 +185,6 @@ public class HeartTransplant {
                 specificCauses[j] = patients[i];
                 j++;
             }
-        }
-        if(x == 0) {
-            return null;
         }
         return specificCauses;
     }
