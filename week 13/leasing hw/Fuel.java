@@ -1,7 +1,7 @@
 public class Fuel {
 
     // Values used for fuelType
-    public static final int    GAS      = 1;  // denotes a car that uses gas
+    private static final int    GAS      = 1;  // denotes a car that uses gas
     public static final int    ELECTRIC = 2;  // denotes a car that uses electricity
 
     // Values used to compute CO2 emission
